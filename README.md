@@ -26,6 +26,8 @@ Create a Triangle class that takes 3 numbers, each representing the side of a tr
 * Set up file, Triangle class
 * Take user input for three sides
 * Make properties private and create getters and setters
+* Determine if the 3 sides make a triangle
+* Determine which type of triangle they make
 
 ## License
 

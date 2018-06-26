@@ -3,11 +3,32 @@ using System.Collections.Generic;
 
 class Triangle
 {
+  private int _sideOne;
+  private int _sideTwo;
+  private int _sideThree;
 
-  public int sideOne;
-  public int sideTwo;
-  public int sideThree;
+  public void SetSides(int[] sides)
+  {
+    _sideOne = sides[0];
+    _sideTwo = sides[1];
+    _sideThree = sides[2];
+  }
 
+  public bool IsTriangle()
+  {
+    if ((_sideOne + _sideTwo <= _sideThree) || (_sideTwo + _sideThree <= _sideOne) || (_sideThree + _sideOne <= _sideTwo))
+    {
+      return false;
+    }
+    else
+    {
+      return true;
+    }
+  }
+}
+
+public class Program
+{
   public static void Main()
   {
     int[] sides = {0, 0, 0};
@@ -19,5 +40,8 @@ class Triangle
       sides[index] = side;
     }
     Console.WriteLine("The sides are: " + sides[0] + "," + sides[1] + "," + sides[2]);
+    Triangle ourTriangle = new Triangle();
+    ourTriangle.SetSides(sides);
+    Console.WriteLine(ourTriangle.IsTriangle());
   }
 }
