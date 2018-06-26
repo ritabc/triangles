@@ -25,6 +25,22 @@ class Triangle
       return true;
     }
   }
+
+  public string WhichType()
+  {
+    if ((_sideOne == _sideTwo) && (_sideTwo == _sideThree))
+    {
+      return "equilateral";
+    }
+    if ((_sideOne == _sideTwo) || (_sideTwo == _sideThree) || (_sideOne == _sideThree))
+    {
+      return "isosceles";
+    }
+    else
+    {
+      return "scalene";
+    }
+  }
 }
 
 public class Program
@@ -39,9 +55,11 @@ public class Program
       int side = int.Parse(stringSide);
       sides[index] = side;
     }
-    Console.WriteLine("The sides are: " + sides[0] + "," + sides[1] + "," + sides[2]);
     Triangle ourTriangle = new Triangle();
     ourTriangle.SetSides(sides);
-    Console.WriteLine(ourTriangle.IsTriangle());
+    if (ourTriangle.IsTriangle())
+    {
+      Console.WriteLine(ourTriangle.WhichType());
+    }
   }
 }
